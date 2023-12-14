@@ -65,30 +65,29 @@ function settingToZero() {
 }
 
 
-function newLatLong(latLong){
+function newLatLong(latLong) {
+  let newLat = "";
+  let count = 0;
 
-let newLat = "";
-let count = 0;
-
-for (let i of latLong) {
-  if (i == ".") {
-      newLat+=i;
-    count++;
-  } else if (count == 6) {
-    break;
-  } else {
-    if(count==1){
-       newLat += i;
-        count++;
-    }
-    else{
+  for (let i of latLong) {
+    if (i == ".") {
       newLat += i;
+      count++;
+    } else if (count == 7) {
+      break;
+    } else {
+      if (count == 1) {
+        newLat += i;
+        count++;
+      } else {
+        newLat += i;
+      }
     }
-   
   }
+
+  return newLat;
 }
-return newLat;
-}
+
 
 
 function downloadJPG() {
