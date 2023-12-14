@@ -66,22 +66,16 @@ function settingToZero() {
 
 
 function newLatLong(latLong) {
+  let latLongStr = latLong.toString().trim();
   let newLat = "";
   let count = 0;
 
-  for (let i of latLong) {
-    if (i == ".") {
-      newLat += i;
-      count++;
-    } else if (count == 7) {
+  for (let i of latLongStr) {
+    if (count === 9) {
       break;
     } else {
-      if (count == 1) {
-        newLat += i;
-        count++;
-      } else {
-        newLat += i;
-      }
+      newLat += i;
+      count++;
     }
   }
 
