@@ -44,12 +44,12 @@ form.addEventListener("submit", (e) => {
 
   refresh.addEventListener("click", settingToZero);
 });
+  const divAdd = document.querySelector(".content");
 
 function paragraphAppend(value) {
   const p = document.createElement("p");
   const text = document.createTextNode(value);
   p.appendChild(text);
-  const divAdd = document.querySelector(".content");
   divAdd.appendChild(p);
 }
 
