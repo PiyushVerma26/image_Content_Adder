@@ -71,18 +71,22 @@ let newLat = "";
 let count = 0;
 
 for (let i of latLong) {
-  if (i == "." || count >= 1) {
-    newLat += i;
+  if (i == ".") {
+      newLat+=i;
     count++;
-  }
-
-  if (count == 6) {
+  } else if (count == 6) {
     break;
+  } else {
+    if(count==1){
+       newLat += i;
+        count++;
+    }
+    else{
+      newLat += i;
+    }
+   
   }
 }
-
-
-
 return newLat;
 }
 
