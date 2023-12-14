@@ -34,14 +34,16 @@ form.addEventListener("submit", (e) => {
     school === ""
   ) {
     alert("Please Enter The Full Detail");
-  } else {
-    paragraphAppend(`latitude:- ${latitude}`);
-    paragraphAppend(`longitude:- ${longitude}`);
+  } else {   
+    let lat=newLatLong(latitude);
+     let long=newLatLong(longitude);
+    paragraphAppend(`latitude:- ${lat}`);
+    paragraphAppend(`longitude:- ${long}`);
     paragraphAppend(`Elevation:- ${elevation}`);
     paragraphAppend(`Accuracy:- ${accuracy}`);
     paragraphAppend(`School:- ${school}`);
   }
-
+  
   refresh.addEventListener("click", settingToZero);
 });
   const divAdd = document.querySelector(".content");
@@ -61,6 +63,25 @@ function settingToZero() {
   document.querySelector("#School").value = "";
   setBack.style.backgroundImage = "";
 }
+
+
+function newLatLong(latLong){
+
+let newLat = "";
+let count = 0;
+
+for (let i of latLong) {
+  if (i == ".") {
+    count++;
+  } else if (count == 6) {
+    break;
+  } else {
+    newLat += i;
+  }
+}
+return newLat;
+}
+
 
 function downloadJPG() {
   let element = document.getElementById("setBack");
